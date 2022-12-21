@@ -1,0 +1,23 @@
+class Solution {
+    public void rotate(int[][] matrix) {
+         int start = 0;
+        int end = matrix.length - 1;
+        
+        int[] corners = new int[4];
+        while(start < end) {
+            for(int offset = 0; offset < (end-start); offset++) {
+                corners[0] = matrix[start][start + offset]; 
+                corners[1] = matrix[start + offset][end];  
+                corners[2] = matrix[end][end - offset];   
+                corners[3] = matrix[end - offset][start];   
+
+                matrix[start + offset][end]   = corners[0]; 
+                matrix[end][end - offset]     = corners[1]; 
+                matrix[end - offset][start]   = corners[2]; 
+                matrix[start][start + offset] = corners[3]; 
+            }
+            start++;
+            end--;
+        }
+    }
+}
