@@ -1,0 +1,5 @@
+class Solution {
+    public void deleteNode(ListNode node) {
+        for(boolean b=true; b; b=false, node.val = node.next.val, node.next = node.next.next);
+    }
+}
